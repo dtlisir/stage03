@@ -27,7 +27,7 @@ def async_task(username='admin'):
     logger.error("save capacity celery任务执行成功")
 
 
-@periodic_task(run_every=crontab(minute='*', hour='*/1', day_of_week="*"))
+@periodic_task(run_every=crontab(minute='0', hour='*/1', day_of_week="*"))
 def save_capacity_data_periodic():
     """
     celery 周期任务示例
