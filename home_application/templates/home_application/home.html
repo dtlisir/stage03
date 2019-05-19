@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block navigation %}
-	<li class="king-navbar-active"><a href="{{ SITE_URL }}"><span>首页</span></a></li>
+    <li class="king-navbar-active"><a href="{{ SITE_URL }}"><span>首页</span></a></li>
     <li><a href="{{ SITE_URL }}get_dfinfo/"><span>API测试</span></a></li>
 {% endblock %}
 
@@ -76,30 +76,29 @@
                     </ul>
                     <h3 class="king-block-title">信息展示</h3>
                 </div>
-                <div class="king-block-content">
+                <div class="king-block-content" id="jpages_demo1">
                     <table class="table mb0 pr15 ranger-box ">
-                        <thead></thead>
-                        <tbody>
+                        <thead>
+                        <tr>
+                            <th>文件系统</th>
+                            <th>分区总量</th>
+                            <th>使用量</th>
+                            <th>剩余量</th>
+                            <th>使用率</th>
+                            <th>挂载点</th>
+                        </tr>
+                        </thead>
+                        <tbody id="datas">
                         <tr>
                             <td colspan="6"> 没有数据</td>
                         </tr>
                         </tbody>
                     </table>
+                    <div class="holder"></div>
                     <!-- 设置面板Start -->
                     <template id="ranger_nodata_tpl">
                         <tr>
                             <td colspan="6"> 正在获取数据，请稍后。。。</td>
-                        </tr>
-                    </template>
-                    <template id="header_tpl_1526111412901">
-                        <tr>
-                            <th>Filesystem</th>
-                            <th>Size</th>
-                            <th>Used</th>
-                            <th>Avail</th>
-                            <th>Use%</th>
-                            <th>Mounted</th>
-
                         </tr>
                     </template>
                     <template id="tpl_1526111412901">
@@ -163,6 +162,14 @@
                 return val;
             });
         }
+
+        $("#jpages_demo1 .holder").jPages({
+            containerID: "datas",
+            previous: "←",
+            next: "→",
+            perPage: 10,
+            delay: 5
+        });
 
         /*
         * 查询表单级联数据拉取
@@ -280,15 +287,12 @@
                     console.log(list);
                     if (list.length) {
                         var tpl = $('#tpl_1526111412901').html();
-                        var headerTpl = $('#header_tpl_1526111412901').html();
                         for (var i = 0, len = list.length; i < len; i++) {
                             var item = list[i];
                             _html += renderTpl(tpl, item)
                         }
-                        $('.ranger-box thead').html(renderTpl(headerTpl, res.capacity_data));
                     } else {
                         _html = $('#ranger_nodata_tpl').html();
-                        $('.ranger-box thead').html('');
                         //作业未执行完，则继续轮询获取执行结果
                         setTimeout(function () {
                             get_capacity(job_instance_id, biz_id, ip)
@@ -313,7 +317,7 @@
                         _html += renderTpl(tpl, item)
                     }
                     $('#biz_id').html(_html);
-                    $('#biz_id').get(0).selectedIndex=1;
+                    $('#biz_id').get(0).selectedIndex = 1;
                     var biz_id = $("#biz_id").val();
                     select_ip(biz_id);
                     select_job(biz_id);

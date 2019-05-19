@@ -95,10 +95,6 @@
             delay: 5
         });
 
-        $(function () {
-
-        });
-
         function renderTpl(str, cfg) {
             var re = /(#(.+?)#)/g;
 
@@ -138,11 +134,10 @@
                             var item = list[i];
                             _html += renderTpl(tpl, item)
                         }
-                        $('.ranger-box tbody').html(_html);
                     } else {
                         _html = $('#ranger_nodata_tpl').html();
-                        $('.ranger-box tbody').html(_html);
                     }
+                    $('.ranger-box tbody').html(_html);
                 }
             });
         }
