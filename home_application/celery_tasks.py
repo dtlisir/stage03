@@ -27,17 +27,17 @@ def async_task(username='admin'):
     logger.error("save capacity celery任务执行成功")
 
 
-# @periodic_task(run_every=crontab(minute='*/5', hour='*', day_of_week="*"))
-# def save_capacity_data_periodic():
-#     """
-#     celery 周期任务示例
-#
-#     run_every=crontab(minute='*/1', hour='*', day_of_week="*")：每 1 分钟执行一次任务
-#     periodic_task：程序运行时自动触发周期任务
-#     """
-#     save_capacity_data()
-#     now = datetime.datetime.now()
-#     logger.error("save capacity celery 周期任务调用成功，当前时间：{}".format(now))
+@periodic_task(run_every=crontab(minute='*', hour='*/1', day_of_week="*"))
+def save_capacity_data_periodic():
+    """
+    celery 周期任务示例
+
+    run_every=crontab(minute='*', hour='*/1', day_of_week="*")：每小时执行一次任务
+    periodic_task：程序运行时自动触发周期任务
+    """
+    save_capacity_data()
+    now = datetime.datetime.now()
+    logger.error("save capacity celery 周期任务调用成功，当前时间：{}".format(now))
 
 
 def save_capacity_data(username='80167885'):
