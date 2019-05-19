@@ -14,9 +14,9 @@ from blueapps.core.celery import celery_app
 # SaaS运行版本，如非必要请勿修改
 RUN_VER = 'open'
 # SaaS应用ID
-APP_CODE = 'lisir01'
+APP_CODE = 'stage02'
 # SaaS安全密钥，注意请勿泄露该密钥
-SECRET_KEY = 'f944e81b-a695-4c86-86d9-93e7196188ec'
+SECRET_KEY = 'bb6d3531-d788-4039-a647-fc41432046a9'
 # 蓝鲸SaaS平台URL, 如 https://paas.blueking.com/
 BK_URL = 'http://paas.class.o.qcloud.com'
 
