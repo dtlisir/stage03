@@ -22,7 +22,8 @@ from blueapps.conf.default_settings import *  # noqa
 # 请在这里加入你的自定义 APP
 INSTALLED_APPS += (
     'home_application',
-    'mako_application'
+    'mako_application',
+    'get_dfinfo',
 )
 
 # 这里是默认的中间件，大部分情况下，不需要改动
@@ -79,6 +80,7 @@ CELERYD_CONCURRENCY = os.getenv('BK_CELERYD_CONCURRENCY', 2)
 
 # CELERY 配置，申明任务的文件路径，即包含有 @task 装饰器的函数文件
 CELERY_IMPORTS = (
+    # 'home_application.celery_tasks',
 )
 
 # load logging settings

@@ -38,7 +38,7 @@ def get_client_by_user(user, **kwargs):
     :returns: 一个初始化好的ComponentClint对象
     """
     try:
-        from account.models import BkUser as User
+        from blueapps.account.models import bkUser as User
     except Exception:
         from django.contrib.auth.models import User
 

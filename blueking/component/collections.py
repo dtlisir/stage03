@@ -7,6 +7,7 @@ from .apis.cmsi import CollectionsCMSI
 from .apis.gse import CollectionsGSE
 from .apis.job import CollectionsJOB
 from .apis.sops import CollectionsSOPS
+from .apis.dim import CollectionsDIM
 
 
 # Available components
@@ -18,4 +19,5 @@ AVAILABLE_COLLECTIONS = {
     'gse': CollectionsGSE,
     'job': CollectionsJOB,
     'sops': CollectionsSOPS,
+    'dim': CollectionsDIM,
 }

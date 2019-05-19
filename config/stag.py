@@ -3,7 +3,7 @@ from config import RUN_VER
 if RUN_VER == 'open':
     from blueapps.patch.settings_open_saas import *  # noqa
 else:
-    from blueapps.patch.settings_paas_services import  * # noqa
+    from blueapps.patch.settings_paas_services import *  # noqa
 
 # 预发布环境
 RUN_MODE = 'STAGING'
@@ -18,12 +18,12 @@ RUN_MODE = 'STAGING'
 DATABASES.update(
     {
         'default': {
-            'ENGINE': '',
-            'NAME': '',  # 数据库名
-            'USER': '',  # 数据库用户
-            'PASSWORD': '',  # 数据库密码
-            'HOST': '',  # 数据库主机
-            'PORT': '',  # 数据库端口
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'lisir01',  # 数据库名
+            'USER': 'root',  # 数据库用户
+            'PASSWORD': 'Uqv.83WuNm',  # 数据库密码
+            'HOST': '10.0.1.192',  # 数据库主机
+            'PORT': '3306',  # 数据库端口
         },
     }
 )
