@@ -63,7 +63,6 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="holder"></div>
                     <template id="ranger_nodata_tpl">
                         <tr>
                             <td colspan="6" style="text-align: center;color: #ccc">没有符合条件的数据</td>
@@ -87,14 +86,6 @@
 {% endblock %}
 {% block extra_block %}
     <script>
-        $("#jpages_demo1 .holder").jPages({
-            containerID: "datas",
-            previous: "←",
-            next: "→",
-            perPage: 10,
-            delay: 5
-        });
-
         function renderTpl(str, cfg) {
             var re = /(#(.+?)#)/g;
 

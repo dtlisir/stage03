@@ -94,7 +94,6 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div class="holder"></div>
                     <!-- 设置面板Start -->
                     <template id="ranger_nodata_tpl">
                         <tr>
@@ -162,14 +161,6 @@
                 return val;
             });
         }
-
-        $("#jpages_demo1 .holder").jPages({
-            containerID: "datas",
-            previous: "←",
-            next: "→",
-            perPage: 10,
-            delay: 5
-        });
 
         /*
         * 查询表单级联数据拉取

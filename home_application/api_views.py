@@ -19,7 +19,7 @@ def get_dfinfo_lisir(request):
     if token != TOKEN:
         return JsonResponse({'result': False, 'data': [], 'message': "Token Authentication Failed"})
 
-    capacitydatas = CapacityData.objects.all()
+    capacitydatas = CapacityData.objects.all()[:11]
     if ip:
         capacitydatas = capacitydatas.filter(ip=ip)
     # if filesystem:

@@ -15,13 +15,14 @@ def home(request):
 
 def get_dfinfo(request):
     ip = request.GET.get('ip')
-    # os = request.GET.get('os')
+    os = request.GET.get('os')
     mounted = request.GET.get('mounted')
 
     # 调用自己开发的API组件
     client = get_client_by_request(request)
     kwargs = {
         'ip': ip,
+        'os': os,
         'mounted': mounted,
         'token': '@adf*adsd^',
     }
